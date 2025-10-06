@@ -1,0 +1,17 @@
+/* datos personales Pablo López Tamargo UO287694 */
+
+/* Estilos generales del proyecto MotoGP-Desktop */
+
+/* Especificidad: 001 */
+body {
+    background-color: #ebe8e0;
+    color: #0a0a00;
+    font-family: "Futura", "Trebuchet MS", Arial, sans-serif;
+}
+
+/* Especificidad: 001 */
+header {
+    background-color: #a8bbb0;
+    /* advertencia por herencia de color de body #0a0a00 */
+}
+
