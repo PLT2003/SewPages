@@ -4,13 +4,45 @@
 
 /* Especificidad: 001 */
 body {
-    background-color: #ebe8e0; /* Ivory */
-    color: #0a0a00;           /* Black */
+    background-color: #ebe8e0;
+    color: #0a0a00;
     font-family: "Futura", "Trebuchet MS", Arial, sans-serif;
 }
 
 /* Especificidad: 001 */
 header {
     /* Color para el header de la página*/
-    background-color: #a8bbb0; /* Celadon */
+    background-color: #a8bbb0;
+    /* advertencia por herencia de color de body #0a0a00 */
+}
+
+/* Especificidad: 010 */
+.active {
+    color: red;
+}
+
+/* Especificidad: 002 */
+header+p {
+    font-size: 0.8em
+}
+
+/* Especificidad: 002 */
+header a {
+    text-decoration: none;
+}
+
+/* Especificidad: 002 */
+header a:hover {
+    font-size: 1.2em;
+}
+
+/* Especificidad: 001 */
+video {
+    width: 100%;
+    height: auto;
+}
+
+/* Especificidad: 001 */
+audio {
+    width: 100%;
 }
