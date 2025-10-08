@@ -11,7 +11,112 @@ body {
 
 /* Especificidad: 001 */
 header {
+    /* Color para el header de la página*/
     background-color: #a8bbb0;
     /* advertencia por herencia de color de body #0a0a00 */
 }
 
+/* h1 -> Especificidad: 001 */
+/* h2 -> Especificidad: 001 */
+h1,
+h2 {
+    text-decoration: underline;
+}
+
+/* Especificidad: 002 */
+main a {
+    font-style: italic;
+}
+
+/* Especificidad: 002 */
+main a:hover {
+    font-size: 1.2em;
+}
+
+/* Especificidad: 002 */
+main a:visited {
+    color: #800080;
+    /* advertencia por herencia de background-color de body #ebe8e0 */
+}
+
+/* Especificidad: 001 */
+ul {
+    list-style-type: square;
+}
+
+/* Especificidad: 001 */
+ol {
+    list-style-type: upper-roman;
+}
+
+/* Especificidad: 001 */
+li {
+    color: #272725;
+    /* advertencia por herencia de background-color de body #ebe8e0 */
+}
+
+/* Especificidad: 001 */
+dt {
+    font-weight: bold;
+}
+
+/* Especificidad: 001 */
+dd {
+    color: #272725;
+    /* advertencia por herencia de background-color de body #ebe8e0 */
+}
+
+/* Especificidad: 010 */
+.active {
+    color: #ff0000;
+    /* advertencia por herencia de background-color de body #ebe8e0 */
+}
+
+/* Especificidad: 002 */
+header+p {
+    font-size: 0.8em
+}
+
+/* Especificidad: 002 */
+header a {
+    text-decoration: none;
+}
+
+/* Especificidad: 002 */
+header a:hover {
+    font-size: 1.2em;
+}
+
+/* Especificidad: 001 */
+video {
+    width: 100%;
+    height: auto;
+}
+
+/* Especificidad: 001 */
+audio {
+    width: 100%;
+}
+
+/* Especificidad: 001 */
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 0.2em solid #0a0a00;
+}
+
+/* Especificidad: 001 */
+th {
+    background-color: #a8bbb0;
+    /* advertencia por herencia de color de body #0a0a00 */
+    border-collapse: collapse;
+    border: 0.1em solid #0a0a00;
+}
+
+/* Especificidad: 001 */
+td {
+    border-collapse: collapse;
+    border: 0.1em solid #0a0a00;
+    text-align: center;
+}
