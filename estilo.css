@@ -23,12 +23,6 @@ h2 {
     text-decoration: underline;
 }
 
-/* Especificidad: 001 */
-a {
-    color: #0000ff
-    /* advertencia por herencia de background-color de body #ebe8e0 o de header #a8bbb0 */
-}
-
 /* Especificidad: 002 */
 main a {
     font-style: italic;
@@ -37,12 +31,6 @@ main a {
 /* Especificidad: 002 */
 main a:hover {
     font-size: 1.2em;
-}
-
-/* Especificidad: 002 */
-main a:visited {
-    color: #800080;
-    /* advertencia por herencia de background-color de body #ebe8e0 */
 }
 
 /* Especificidad: 001 */
