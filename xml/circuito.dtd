@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT Circuito (Nombre, LongitudCircuito, Anchura, Fecha, Hora, Vueltas, Localidad, Pais, Patrocinador, Bibliografia, Fotos, Videos, Origen, Tramos, Vencedor, Clasificados)>
+<!ELEMENT Nombre (#PCDATA)>
+<!ELEMENT LongitudCircuito (#PCDATA)>
+<!ATTLIST LongitudCircuito unidades CDATA #REQUIRED>
+<!ELEMENT Anchura (#PCDATA)>
+<!ATTLIST Anchura unidades CDATA #REQUIRED>
+<!ELEMENT Fecha (#PCDATA)>
+<!ELEMENT Hora (#PCDATA)>
+<!ELEMENT Vueltas (#PCDATA)>
+<!ELEMENT Localidad (#PCDATA)>
+<!ELEMENT Pais (#PCDATA)>
+<!ELEMENT Patrocinador (#PCDATA)>
+<!ELEMENT Bibliografia (Enlace*)>
+<!ELEMENT Enlace (#PCDATA)>
+<!ATTLIST Enlace href CDATA #REQUIRED>
+<!ELEMENT Fotos (Foto+)>
+<!ELEMENT Foto (#PCDATA)>
+<!ATTLIST Foto alt CDATA #REQUIRED>
+<!ELEMENT Videos (Video+)>
+<!ELEMENT Video (#PCDATA)>
+<!ATTLIST Video alt CDATA #REQUIRED>
+<!ELEMENT Origen (Longitud, Latitud, Altitud)>
+<!ELEMENT Longitud (#PCDATA)>
+<!ATTLIST Longitud unidades CDATA #REQUIRED>
+<!ELEMENT Latitud (#PCDATA)>
+<!ATTLIST Latitud unidades CDATA #REQUIRED>
+<!ELEMENT Altitud (#PCDATA)>
+<!ATTLIST Altitud unidades CDATA #REQUIRED>
+<!ELEMENT Tramos (Tramo+)>
+<!ELEMENT Tramo (Distancia, Final, Sector)>
+<!ELEMENT Distancia (#PCDATA)>
+<!ATTLIST Distancia unidades CDATA #REQUIRED>
+<!ELEMENT Final (Longitud, Latitud, Altitud)>
+<!ELEMENT Sector (#PCDATA)>
+<!ELEMENT Vencedor (#PCDATA)>
+<!ATTLIST Vencedor duracion CDATA #REQUIRED>
+<!ELEMENT Clasificados (Clasificado+)>
+<!ELEMENT Clasificado (#PCDATA)>
+<!ATTLIST Clasificado posicion CDATA #REQUIRED>
+<!ATTLIST Clasificado puntuacion CDATA #REQUIRED>

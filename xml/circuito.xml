@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Circuito SYSTEM "circuito.dtd">
+
+<Circuito>
+    <Nombre>Chang International Circuit</Nombre>
+    <LongitudCircuito unidades="metros">4554</LongitudCircuito>
+    <Anchura unidades="metros">12</Anchura>
+    <Fecha>2025-03-02</Fecha>
+    <Hora>15:00</Hora>
+    <Vueltas>26</Vueltas>
+    <Localidad>Buriram</Localidad>
+    <Pais>Tailandia</Pais>
+    <Patrocinador>ThaiBev</Patrocinador>
+    <Bibliografia>
+        <Enlace href="https://www.bric.co.th">Página oficial Chang International Circuit</Enlace>
+        <Enlace href="https://es.wikipedia.org/wiki/Chang_International_Circuit">Página wikipedia sobre Chang International Circuit</Enlace>
+        <Enlace href="https://www.motogp.com/es/circuitos/chang-international-circuit">Página oficial de MotoGP</Enlace>
+    </Bibliografia>
+    <Fotos>
+        <Foto alt="Foto del comienzo del circuito Chang International Circuit">../multimedia/changInternational1.webp</Foto>
+        <Foto alt="Foto a vista de dron del circuito Chang International Circuit">../multimedia/changInternational2.jpg</Foto>
+        <Foto alt="Mapa del circuito Chang International Circuit">../multimedia/changInternational3.webp</Foto>
+    </Fotos>
+    <Videos>
+        <Video alt="Video de una vuelta al circuito Chang Internation Circuit">../multimedia/changCircuit.mp4</Video>
+    </Videos>
+    <Origen>
+        <Longitud unidades="grados decimales">103.088056</Longitud>
+        <Latitud unidades="grados decimales">14.957500</Latitud>
+        <Altitud unidades="metros">180,6</Altitud>
+    </Origen>
+    <Tramos>
+        <Tramo>
+            <Distancia unidades="metros">255.59</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0847156</Longitud>
+                <Latitud unidades="grados decimales">14.9620019</Latitud>
+                <Altitud unidades="metros">180,53</Altitud>
+            </Final>
+            <Sector>1</Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">1024,85</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0855894</Longitud>
+                <Latitud unidades="grados decimales">14.9630569</Latitud>
+                <Altitud unidades="metros">165,99</Altitud>
+            </Final>
+            <Sector>2</Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">1273,19</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.086944</Longitud>
+                <Latitud unidades="grados decimales">14.9575</Latitud>
+                <Altitud unidades="metros">177,9</Altitud>
+            </Final>
+            <Sector>3</Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">1273,19</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.088056</Longitud>
+                <Latitud unidades="grados decimales">14.9575</Latitud>
+                <Altitud unidades="metros">311,38</Altitud>
+            </Final>
+            <Sector>4</Sector>
+        </Tramo>
+    </Tramos>
+    <Vencedor duracion="00:39:37.244">Marc Márquez</Vencedor>
+    <Clasificados>
+        <Clasificado posicion="1" puntuacion="00:39:37.244">Marc Márquez</Clasificado>
+        <Clasificado posicion="2" puntuacion="00:39:39">Alex Márquez</Clasificado>
+        <Clasificado posicion="3" puntuacion="00:39:39">Francesco Bagnaia</Clasificado>
+    </Clasificados>
+</Circuito>
