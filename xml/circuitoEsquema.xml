@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE Circuito SYSTEM "circuito.dtd">
 
-<Circuito>
+<Circuito
+xmlns="http://www.uniovi.es"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.uniovi.es circuito.xsd">
     <Nombre>Chang International Circuit</Nombre>
     <LongitudCircuito unidades="metros">4554</LongitudCircuito>
     <Anchura unidades="metros">12</Anchura>
