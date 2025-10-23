@@ -31,31 +31,38 @@ class Svg:
         self.archivo.write('</svg>\n')
 
 def extraer_puntos(xml_file):
-    """Extrae distancias acumuladas y altitudes usando XPath"""
+    """Extrae distancias acumuladas y altitudes usando XPath con namespace"""
     tree = ET.parse(xml_file)
     root = tree.getroot()
 
-    namespace = {}  # sin namespaces en tu XML
+    # Definir el namespace
+    ns = {'ns': 'http://www.uniovi.es'}
 
     puntos = []
 
     # Altura inicial del Origen
-    altitud_origen = float(root.find("Origen/Altitud", namespace).text)
+    altitud_origen_elem = root.find("ns:Origen/ns:Altitud", ns)
+    if altitud_origen_elem is None:
+        raise ValueError("No se encontró el elemento <Altitud> dentro de <Origen> en el XML.")
+    altitud_origen = float(altitud_origen_elem.text)
     puntos.append((0.0, altitud_origen))  # distancia acumulada = 0
 
     # Tramos
     distancia_acumulada = 0.0
 
-    for tramo in root.findall("Tramos/Tramo", namespace):
-        distancia = float(tramo.find("Distancia").text)
-        altitud = float(tramo.find("Final/Altitud").text)
+    for tramo in root.findall("ns:Tramos/ns:Tramo", ns):
+        distancia = float(tramo.find("ns:Distancia", ns).text)
+        altitud_elem = tramo.find("ns:Final/ns:Altitud", ns)
+        if altitud_elem is None:
+            continue  # por si algún tramo no tiene altitud final
+        altitud = float(altitud_elem.text)
         distancia_acumulada += distancia
         puntos.append((distancia_acumulada, altitud))
 
     return puntos
 
 def escalar_puntos(puntos, ancho, alto, margen=50):
-    """Escala los puntos a coordenadas SVG (invirtiendo eje Y)"""
+    """Escala los puntos a coordenadas SVG (invirtiendo eje Y) y cierra el perfil"""
     distancias = [x for x, y in puntos]
     altitudes = [y for x, y in puntos]
 
@@ -70,12 +77,17 @@ def escalar_puntos(puntos, ancho, alto, margen=50):
     puntos_svg = []
     for x, y in puntos:
         svg_x = margen + (x - min_x) * escala_x
-        svg_y = alto - margen - (y - min_y) * escala_y  # SVG Y positivo hacia abajo
+        svg_y = alto - margen - (y - min_y) * escala_y  # eje Y invertido en SVG
         puntos_svg.append((svg_x, svg_y))
 
     # Añadir puntos para cerrar el perfil (suelo)
-    puntos_svg.append((puntos_svg[-1][0], alto - margen))  # bajar al suelo
-    puntos_svg.append((puntos_svg[0][0], alto - margen))   # cerrar por la izquierda
+    suelo_y = alto - margen
+    x_final = puntos_svg[-1][0]
+    x_inicial = puntos_svg[0][0]
+
+    puntos_svg.append((x_final, suelo_y))   # bajar verticalmente al suelo
+    puntos_svg.append((x_inicial, suelo_y)) # cerrar por la izquierda
+    puntos_svg.append(puntos_svg[0])        # volver al inicio (opcional, cierra del todo)
 
     return puntos_svg
 
@@ -88,7 +100,7 @@ def main():
     try:
         puntos = extraer_puntos(input_file)
     except FileNotFoundError:
-        print(f"❌ No se encontró el archivo {input_file}")
+        print(f"No se encontró el archivo {input_file}")
         return
 
     puntos_svg = escalar_puntos(puntos, ancho, alto)
@@ -106,10 +118,9 @@ def main():
             svg.dibuja_polilinea(puntos_svg)
             svg.final()
 
-        print(f"✅ Archivo {output_file} generado correctamente.")
-        print("📄 Puedes abrirlo en tu navegador y exportarlo como PDF para generar altimetria.pdf.")
+        print(f"Archivo {output_file} generado correctamente.")
     except IOError:
-        print(f"❌ No se pudo escribir el archivo {output_file}")
+        print(f"No se pudo escribir el archivo {output_file}")
 
 if __name__ == "__main__":
     main()

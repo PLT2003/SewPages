@@ -21,52 +21,295 @@ xsi:schemaLocation="http://www.uniovi.es circuito.xsd">
     <Fotos>
         <Foto alt="Foto del comienzo del circuito Chang International Circuit">../multimedia/changInternational1.webp</Foto>
         <Foto alt="Foto a vista de dron del circuito Chang International Circuit">../multimedia/changInternational2.jpg</Foto>
-        <Foto alt="Mapa del circuito Chang International Circuit">../multimedia/changInternational3.webp</Foto>
+        <Foto alt="Mapa del circuito Chang International Circuit">../multimedia/changInternational3.png</Foto>
     </Fotos>
     <Videos>
         <Video alt="Video de una vuelta al circuito Chang Internation Circuit">../multimedia/changCircuit.mp4</Video>
     </Videos>
     <Origen>
-        <Longitud unidades="grados decimales">103.088056</Longitud>
-        <Latitud unidades="grados decimales">14.957500</Latitud>
-        <Altitud unidades="metros">180.6</Altitud>
+        <Longitud unidades="grados decimales">103.0842</Longitud>
+        <Latitud unidades="grados decimales">14.9586</Latitud>
+        <Altitud unidades="metros">180.53</Altitud>
     </Origen>
     <Tramos>
         <Tramo>
-            <Distancia unidades="metros">255.59</Distancia>
+            <Distancia unidades="metros">232.54</Distancia>
             <Final>
-                <Longitud unidades="grados decimales">103.0847156</Longitud>
-                <Latitud unidades="grados decimales">14.9620019</Latitud>
+                <Longitud unidades="grados decimales">103.0822</Longitud>
+                <Latitud unidades="grados decimales">14.9594</Latitud>
+                <Altitud unidades="metros">179.24</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">601.06</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0833</Longitud>
+                <Latitud unidades="grados decimales">14.9647</Latitud>
+                <Altitud unidades="metros">173</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">405.46</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0839</Longitud>
+                <Latitud unidades="grados decimales">14.9683</Latitud>
+                <Altitud unidades="metros">168.93</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">46.38</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0842</Longitud>
+                <Latitud unidades="grados decimales">14.9686</Latitud>
+                <Altitud unidades="metros">165.84</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">77.30</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0847</Longitud>
+                <Latitud unidades="grados decimales">14.9681</Latitud>
+                <Altitud unidades="metros">165.4</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">787.28</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0836</Longitud>
+                <Latitud unidades="grados decimales">14.9611</Latitud>
+                <Altitud unidades="metros">177.91</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">55.60</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0836</Longitud>
+                <Latitud unidades="grados decimales">14.9606</Latitud>
+                <Altitud unidades="metros">179</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">262.84</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0853</Longitud>
+                <Latitud unidades="grados decimales">14.9589</Latitud>
+                <Altitud unidades="metros">176.8</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">32.23</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0856</Longitud>
+                <Latitud unidades="grados decimales">14.9589</Latitud>
+                <Altitud unidades="metros">177.73</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">21.49</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0858</Longitud>
+                <Latitud unidades="grados decimales">14.9589</Latitud>
+                <Altitud unidades="metros">178</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">64.26</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0861</Longitud>
+                <Latitud unidades="grados decimales">14.9594</Latitud>
+                <Altitud unidades="metros">180.54</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">66.72</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0861</Longitud>
+                <Latitud unidades="grados decimales">14.9600</Latitud>
+                <Altitud unidades="metros">180.69</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">63.23</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0856</Longitud>
+                <Latitud unidades="grados decimales">14.9603</Latitud>
+                <Altitud unidades="metros">178.28</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">111.53</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0847</Longitud>
+                <Latitud unidades="grados decimales">14.9608</Latitud>
+                <Altitud unidades="metros">180.13</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">74.09</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0844</Longitud>
+                <Latitud unidades="grados decimales">14.9614</Latitud>
+                <Altitud unidades="metros">178.79</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">33.36</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0844</Longitud>
+                <Latitud unidades="grados decimales">14.9617</Latitud>
+                <Altitud unidades="metros">177.62</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">246.74</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0847</Longitud>
+                <Latitud unidades="grados decimales">14.9639</Latitud>
+                <Altitud unidades="metros">175.36</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">46.38</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0850</Longitud>
+                <Latitud unidades="grados decimales">14.9642</Latitud>
+                <Altitud unidades="metros">174.79</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">39.16</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0853</Longitud>
+                <Latitud unidades="grados decimales">14.9644</Latitud>
+                <Altitud unidades="metros">174.47</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">118.17</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0864</Longitud>
+                <Latitud unidades="grados decimales">14.9644</Latitud>
+                <Altitud unidades="metros">175.05</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">68.18</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0870</Longitud>
+                <Latitud unidades="grados decimales">14.9642</Latitud>
+                <Altitud unidades="metros">174.87</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">66.72</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0870</Longitud>
+                <Latitud unidades="grados decimales">14.9636</Latitud>
+                <Altitud unidades="metros">173.49</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">46.38</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0867</Longitud>
+                <Latitud unidades="grados decimales">14.9633</Latitud>
+                <Altitud unidades="metros">174.5</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">68.18</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0861</Longitud>
+                <Latitud unidades="grados decimales">14.9631</Latitud>
+                <Altitud unidades="metros">178.28</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">105.14</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0864</Longitud>
+                <Latitud unidades="grados decimales">14.9622</Latitud>
+                <Altitud unidades="metros">177.34</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">64.26</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0867</Longitud>
+                <Latitud unidades="grados decimales">14.9617</Latitud>
+                <Altitud unidades="metros">176.27</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">33.36</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0867</Longitud>
+                <Latitud unidades="grados decimales">14.9614</Latitud>
+                <Altitud unidades="metros">177.69</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">95.7</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0867</Longitud>
+                <Latitud unidades="grados decimales">14.9603</Latitud>
+                <Altitud unidades="metros">179.42</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">434.86</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0870</Longitud>
+                <Latitud unidades="grados decimales">14.9575</Latitud>
+                <Altitud unidades="metros">177.27</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">29.9</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0867</Longitud>
+                <Latitud unidades="grados decimales">14.9575</Latitud>
+                <Altitud unidades="metros">178.25</Altitud>
+            </Final>
+            <Sector></Sector>
+        </Tramo>
+        <Tramo>
+            <Distancia unidades="metros">300.97</Distancia>
+            <Final>
+                <Longitud unidades="grados decimales">103.0842</Longitud>
+                <Latitud unidades="grados decimales">14.9586</Latitud>
                 <Altitud unidades="metros">180.53</Altitud>
             </Final>
-            <Sector>1</Sector>
-        </Tramo>
-        <Tramo>
-            <Distancia unidades="metros">1024.85</Distancia>
-            <Final>
-                <Longitud unidades="grados decimales">103.0855894</Longitud>
-                <Latitud unidades="grados decimales">14.9630569</Latitud>
-                <Altitud unidades="metros">165.99</Altitud>
-            </Final>
-            <Sector>2</Sector>
-        </Tramo>
-        <Tramo>
-            <Distancia unidades="metros">1273.19</Distancia>
-            <Final>
-                <Longitud unidades="grados decimales">103.086944</Longitud>
-                <Latitud unidades="grados decimales">14.9575</Latitud>
-                <Altitud unidades="metros">177.9</Altitud>
-            </Final>
-            <Sector>3</Sector>
-        </Tramo>
-        <Tramo>
-            <Distancia unidades="metros">1273.19</Distancia>
-            <Final>
-                <Longitud unidades="grados decimales">103.088056</Longitud>
-                <Latitud unidades="grados decimales">14.9575</Latitud>
-                <Altitud unidades="metros">311.38</Altitud>
-            </Final>
-            <Sector>4</Sector>
+            <Sector></Sector>
         </Tramo>
     </Tramos>
     <Vencedor duracion="PT39M37.244S">Marc Márquez</Vencedor>
