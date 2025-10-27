@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 
 <html lang="es">
+
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
@@ -15,11 +16,13 @@
 
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+
+    <script src="js/ciudad.js"></script>
 </head>
 
 
 
-<body>    
+<body>
     <!-- Datos con el contenidos que aparece en el navegador -->
     <header>
         <h1><a href="index.html" title="Página inicial de MotoGP-Desktop">MotoGP-Desktop</a></h1>
@@ -34,9 +37,19 @@
         </nav>
     </header>
 
-    <p>Estás en: <a href="index.html" title="Página inicial de MotoGP-Desktop">Inicio</a> >> <strong>Meteorología</strong></p>
-    
+    <p>Estás en: <a href="index.html" title="Página inicial de MotoGP-Desktop">Inicio</a> >>
+        <strong>Meteorología</strong></p>
+
     <h2>Meteorología de MotoGP-Desktop</h2>
-    <p>en desarrollo</p>
+    <script>
+        let ciudad = new Ciudad("Buriram", "Tailandia", "Tailandés");
+        ciudad.rellenar(23364,"14°59'42\"N 103°06'41\"E");
+        ciudad.getNombre();
+        ciudad.getPais();
+        ciudad.getInfo();
+        ciudad.getCentro();
+    </script>
+
 </body>
+
 </html>
