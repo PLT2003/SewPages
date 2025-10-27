@@ -29,12 +29,12 @@ class Html:
         self.archivo.write('<body>\n')
 
     def abrir_header(self, titulo):
-        self.archivo.write('<header role="banner">\n')
+        self.archivo.write('<header>\n')
         self.archivo.write(f'  <h1>{html_escape.escape(titulo)}</h1>\n')
         self.archivo.write('</header>\n')
 
     def abrir_main(self):
-        self.archivo.write('<main role="main">\n')
+        self.archivo.write('<main>\n')
 
     def cerrar_main(self):
         self.archivo.write('</main>\n')
@@ -52,10 +52,10 @@ class Html:
 
     def escribir_tabla_kv(self, filas, summary="Información del circuito"):
         # filas: list of (clave, valor)
-        self.archivo.write(f'<table role="table" summary="{html_escape.escape(summary)}">\n')
+        self.archivo.write(f'<table>\n')
         self.archivo.write('  <tbody>\n')
         for k, v in filas:
-            self.archivo.write(f'    <tr><th scope="row">{html_escape.escape(k)}</th><td>{html_escape.escape(v)}</td></tr>\n')
+            self.archivo.write(f'    <tr><th scope="row" id="{html_escape.escape(k)}">{html_escape.escape(k)}</th><td headers="{html_escape.escape(k)}">{html_escape.escape(v)}</td></tr>\n')
         self.archivo.write('  </tbody>\n')
         self.archivo.write('</table>\n')
 
@@ -65,20 +65,18 @@ class Html:
         for href, texto in enlaces:
             safe_href = html_escape.escape(href, quote=True)
             safe_text = html_escape.escape(texto)
-            self.archivo.write(f'  <li><a href="{safe_href}" target="_blank" rel="noopener noreferrer">{safe_text}</a></li>\n')
+            self.archivo.write(f'  <li><a href="{safe_href}">{safe_text}</a></li>\n')
         self.archivo.write('</ul>\n')
 
     def escribir_galeria_fotos(self, fotos):
         # fotos: list of (ruta, alt)
-        self.archivo.write('<section aria-labelledby="fotos-title">\n')
+        self.archivo.write('<section>\n')
         self.archivo.write('  <h2>Fotos</h2>\n')
         for ruta, alt in fotos:
             safe_ruta = html_escape.escape(ruta, quote=True)
             safe_alt = html_escape.escape(alt)
-            self.archivo.write('    <figure role="listitem">\n')
+            self.archivo.write('    <figure>\n')
             self.archivo.write(f'      <img src="{safe_ruta}" alt="{safe_alt}">\n')
-            if alt:
-                self.archivo.write(f'      <figcaption>{safe_alt}</figcaption>\n')
             self.archivo.write('    </figure>\n')
         self.archivo.write('</section>\n')
 
@@ -86,18 +84,15 @@ class Html:
         # videos: list of (ruta, alt)
         if not videos:
             return
-        self.archivo.write('<section aria-labelledby="videos-title">\n')
+        self.archivo.write('<section>\n')
         self.archivo.write('  <h2>Videos</h2>\n')
         for ruta, alt in videos:
             safe_ruta = html_escape.escape(ruta, quote=True)
             self.archivo.write('  <figure>\n')
             # Insertamos video con controles y accesibilidad
-            self.archivo.write(f'    <video controls aria-label="{html_escape.escape(alt)}">\n')
+            self.archivo.write(f'    <video controls>\n')
             self.archivo.write(f'      <source src="{safe_ruta}">\n')
-            self.archivo.write('      Tu navegador no soporta la etiqueta <code>video</code>.\n')
             self.archivo.write('    </video>\n')
-            if alt:
-                self.archivo.write(f'    <figcaption>{html_escape.escape(alt)}</figcaption>\n')
             self.archivo.write('  </figure>\n')
         self.archivo.write('</section>\n')
 
@@ -191,13 +186,13 @@ def generar_html(xml_input="circuitoEsquema.xml", html_output="InfoCircuito.html
         h.abrir_main()
 
         # Tabla con los datos principales
-        h.archivo.write('<section aria-labelledby="datos-title">\n')
+        h.archivo.write('<section>\n')
         h.archivo.write('  <h2>Datos principales</h2>\n')
         h.escribir_tabla_kv(datos["kv"])
         h.archivo.write('</section>\n')
 
         # Bibliografía / enlaces
-        h.archivo.write('<section aria-labelledby="biblio-title">\n')
+        h.archivo.write('<section>\n')
         h.archivo.write('  <h2>Bibliografía y enlaces</h2>\n')
         if datos["enlaces"]:
             h.escribir_lista_enlaces(datos["enlaces"])
@@ -206,7 +201,7 @@ def generar_html(xml_input="circuitoEsquema.xml", html_output="InfoCircuito.html
         h.archivo.write('</section>\n')
 
         # Clasificados
-        h.archivo.write('<section aria-labelledby="clasificados-title">\n')
+        h.archivo.write('<section>\n')
         h.archivo.write('  <h2>Clasificados</h2>\n')
         if datos["clasificados"]:
             h.archivo.write('<ul>\n')
