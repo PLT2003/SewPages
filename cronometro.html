@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 
 <html lang="es">
+
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
@@ -9,12 +10,14 @@
     <link rel="icon" href="multimedia/favicon.ico" type="image/x-icon">
 
     <meta name="author" content="Pablo López Tamargo" />
-    <meta name="description" content="Juegos de MotoGP-Desktop" />
-    <meta name="keywords" content="juegos, jugar, entretenimiento, videojuegos, partida" />
+    <meta name="description" content="Cronómetro de MotoGP-Desktop" />
+    <meta name="keywords" content="tiempo, cronómetro, duración" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+
+    <script src="js/cronometro.js"></script>
 </head>
 
 <body>
@@ -32,12 +35,18 @@
         </nav>
     </header>
 
-    <p>Estás en: <a href="index.html" title="Página inicial de MotoGP-Desktop">Inicio</a> >> <strong>Juegos</strong></p>
-    
-    <h2>Juegos de MotoGP-Desktop</h2>
-    <ul>
-       <li><a href="memoria.html">Juego de memoria con cartas</a></li>
-       <li><a href="cronometro.html">Cronómetro</a></li> 
-    </ul>
+    <p>
+        Estás en: <a href="index.html" title="Página inicial de MotoGP-Desktop">Inicio</a> >>
+        <a href="juegos.html" title="Juegos de MotoGP-Desktop">Juegos</a> >>
+        <strong>Cronómetro</strong>
+    </p>
+
+    <main>
+        <p>00:00.0</p>
+        <button onclick="cronometro.arrancar()">Arrancar</button>
+        <button onclick="cronometro.parar()">Parar</button>
+        <button onclick="cronometro.reiniciar()">Reiniciar</button>
+    </main>
 </body>
+
 </html>

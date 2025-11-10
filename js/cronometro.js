@@ -24,13 +24,14 @@ class Cronometro {
             const ahora = new Date();
             this.tiempo = ahora - this.inicio;
         }
+        this.mostrar();
     }
 
     mostrar() {
         let minutos = parseInt(this.tiempo / 60000).toString().padStart(2, '0');
         let segundos = parseInt((this.tiempo % 60000) / 1000).toString().padStart(2, '0');
-        let decimas = parseInt(((this.tiempo % 60000) % 1000) / 10);
-        const cadena = `${minutos}:${segundos}:${decimas}`;
+        let decimas = Math.floor((this.tiempo % 1000) / 100);
+        const cadena = `${minutos}:${segundos}.${decimas}`;
         const main = document.querySelector('main');
         if (main) {
             const primerParrafo = main.querySelector('p');
@@ -58,4 +59,7 @@ class Cronometro {
         this.tiempo = 0;
         this.mostrar();
     }
+
 }
+
+const cronometro = new Cronometro();
