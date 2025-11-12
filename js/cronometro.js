@@ -3,6 +3,14 @@ class Cronometro {
         this.tiempo = 0;
         this.stop = false;
         this.corriendo = null; // Atributo para almacenar el temporizador
+        this.añadirEventos();
+    }
+
+    añadirEventos() {
+        const buttons = document.querySelectorAll("button");
+        buttons[0].addEventListener("click", this.arrancar.bind(this));
+        buttons[1].addEventListener("click", this.parar.bind(this));
+        buttons[2].addEventListener("click", this.reiniciar.bind(this));
     }
 
     arrancar() {

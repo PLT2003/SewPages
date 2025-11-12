@@ -4,6 +4,10 @@ class Memoria {
         this.primera_carta = null;
         this.segunda_carta = null;
         this.barajarCartas();
+        this.añadirEventos();
+        this.tablero_bloqueado = false;
+        this.cronometro = new Cronometro();
+        this.cronometro.arrancar();
     }
 
     voltearCarta(carta) {
@@ -27,9 +31,16 @@ class Memoria {
         this.comprobarPareja();
     }
 
+    añadirEventos() {
+        const articles = document.querySelectorAll("article");
+        for (let i = 0; i < articles.length; i++) {
+            articles[i].addEventListener("click", this.voltearCarta.bind(this, articles[i]));
+        }
+    }
+
     barajarCartas() {
         const main = document.querySelector("main");
-        const cartas = Array.from(main.children);
+        const cartas = Array.from(main.querySelectorAll("article"));
 
         for (let i = cartas.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * i);
@@ -37,7 +48,7 @@ class Memoria {
         }
     }
 
-    reinciarAtributos() {
+    reiniciarAtributos() {
         this.tablero_bloqueado = false;
         this.primera_carta = null;
         this.segunda_carta = null;
@@ -46,16 +57,18 @@ class Memoria {
     deshabilitarCartas() {
         this.primera_carta.setAttribute('data-estado', 'revelada');
         this.segunda_carta.setAttribute('data-estado', 'revelada');
-        this.comprobarJuego
+        this.comprobarJuego();
         this.reiniciarAtributos();
     }
 
     comprobarJuego() {
         const main = document.querySelector("main");
         const cartasReveladas = main.querySelectorAll('article[data-estado="revelada"]');
+        const cartas = main.querySelectorAll("article");
 
-        if (cartasReveladas.length === main.children.length - 1) {
+        if (cartasReveladas.length === cartas.length) {
             this.tablero_bloqueado = true;
+            this.cronometro.parar();
         }
     }
 
