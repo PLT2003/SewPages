@@ -2,7 +2,14 @@ class Carrusel {
     constructor() {
         this.busqueda = "Chang International Circuit";
         this.actual = 0;
-        this.maximo = 4; // Para 5 fotos: índices 0..4
+        this.maximo = 4;
+    }
+
+    mostrar() {
+        this.getFotografias()
+            .then(json => this.procesarJSONFotografias(json))
+            .then(jsonProc => this.iniciarCarrusel(jsonProc))
+            .catch(err => console.error("Error en el carrusel:", err));
     }
 
     getFotografias() {
@@ -19,8 +26,7 @@ class Carrusel {
                 success: function (data) {
 
                     let fotos = data.items.map(item => {
-                        let url = item.media.m;
-                        url = url.replace("_m.jpg", "_z.jpg");
+                        let url = item.media.m.replace("_m.jpg", "_z.jpg");
                         return {
                             title: item.title,
                             url: url,
@@ -40,6 +46,7 @@ class Carrusel {
 
     procesarJSONFotografias(json) {
         let seleccion = json.imagenes.slice(0, 5);
+
         let procesado = {
             total: seleccion.length,
             fotos: []
@@ -53,12 +60,12 @@ class Carrusel {
                 autor: seleccion[i].autor
             });
         }
+
         return procesado;
     }
 
-    mostrarFotografias(jsonProcesado) {
-
-        const article = $("article");
+    iniciarCarrusel(jsonProcesado) {
+        const article = $("article").first();
 
         let primeraFoto = jsonProcesado.fotos[0];
 
@@ -68,8 +75,7 @@ class Carrusel {
 
         article.append(imagen);
 
-        // 🔥 activar temporizador usando bind()
-        setInterval(this.cambiarFotografia.bind(this, jsonProcesado), 3000);
+        setInterval(() => this.cambiarFotografia(jsonProcesado), 3000);
     }
 
     cambiarFotografia(jsonProcesado) {

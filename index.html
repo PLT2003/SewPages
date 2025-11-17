@@ -19,6 +19,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/carrusel.js"></script>
+    <script src="js/noticias.js"></script>
 </head>
 
 <body>
@@ -38,13 +39,16 @@
     <article>
         <h2>Imágenes del circuito de Chang International Circuit</h2>
     </article>
+    <section>
+        <h2>Noticias del circuito de Chang International Circuit</h2>
+    </section>
     <script>
-        $(document).ready(function () {
-            const car = new Carrusel();
-            car.getFotografias()
-                .then(json => car.procesarJSONFotografias(json))
-                .then(jsonProc => car.mostrarFotografias(jsonProc));
-        });
+        const carrusel = new Carrusel();
+        carrusel.mostrar();
+    </script>
+    <script>
+        const noticias = new Noticias();
+        noticias.buscar();
     </script>
 </body>
 

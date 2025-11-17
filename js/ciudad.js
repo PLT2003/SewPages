@@ -46,17 +46,13 @@ class Ciudad {
     }
 
     getMeteorologiaCarrera() {
-        // Coordenadas del circuito Chang International Circuit (Buriram)
         const lat = 14.99;
         const lon = 103.08;
 
-        // Día de la carrera
         const fecha = "2024-10-27";
 
-        // URL del API
         const url = "https://archive-api.open-meteo.com/v1/archive";
 
-        // Llamada AJAX con jQuery
         return $.ajax({
             url: url,
             method: "GET",
@@ -77,7 +73,7 @@ class Ciudad {
 
     procesarJSONCarrera(json) {
         let procesado = {
-            fecha: json.hourly.time[0].slice(0, 10),  // primera fecha disponible
+            fecha: json.hourly.time[0].slice(0, 10),
             sol: {
                 amanecer: json.daily.sunrise[0],
                 anochecer: json.daily.sunset[0]
