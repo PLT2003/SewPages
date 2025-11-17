@@ -2,13 +2,11 @@ class Carrusel {
     constructor() {
         this.busqueda = "Chang International Circuit";
         this.actual = 0;
-        this.maximo = 4;
+        this.maximo = 4; // Para 5 fotos: índices 0..4
     }
+
     getFotografias() {
-
-        // Devolvemos una promesa con el JSON final
         return new Promise((resolve, reject) => {
-
             $.ajax({
                 url: "https://www.flickr.com/services/feeds/photos_public.gne",
                 type: "GET",
@@ -18,15 +16,11 @@ class Carrusel {
                     format: "json",
                     tags: this.busqueda
                 },
-
                 success: function (data) {
 
                     let fotos = data.items.map(item => {
-
                         let url = item.media.m;
-
                         url = url.replace("_m.jpg", "_z.jpg");
-
                         return {
                             title: item.title,
                             url: url,
@@ -34,48 +28,37 @@ class Carrusel {
                         };
                     });
 
-                    let resultado = {
+                    resolve({
                         cantidad: fotos.length,
                         imagenes: fotos
-                    };
-
-                    resolve(resultado);
+                    });
                 },
-
-                error: function (err) {
-                    reject(err);
-                }
+                error: reject
             });
-
         });
     }
 
     procesarJSONFotografias(json) {
-
         let seleccion = json.imagenes.slice(0, 5);
-
         let procesado = {
             total: seleccion.length,
             fotos: []
         };
 
         for (let i = 0; i < seleccion.length; i++) {
-            let foto = {
+            procesado.fotos.push({
                 indice: i,
                 titulo: seleccion[i].title,
                 url: seleccion[i].url,
                 autor: seleccion[i].autor
-            };
-
-            procesado.fotos.push(foto);
+            });
         }
-
         return procesado;
     }
 
     mostrarFotografias(jsonProcesado) {
 
-        const article = document.querySelector("article");
+        const article = $("article");
 
         let primeraFoto = jsonProcesado.fotos[0];
 
@@ -83,22 +66,23 @@ class Carrusel {
             .attr("src", primeraFoto.url)
             .attr("alt", primeraFoto.titulo);
 
-        article.appendChild(imagen);
+        article.append(imagen);
+
+        // 🔥 activar temporizador usando bind()
+        setInterval(this.cambiarFotografia.bind(this, jsonProcesado), 3000);
     }
 
     cambiarFotografia(jsonProcesado) {
+        this.actual++;
 
-    this.actual++;
+        if (this.actual > this.maximo) {
+            this.actual = 0;
+        }
 
-    if (this.actual >= this.maximo) {
-        this.actual = 0;
+        let foto = jsonProcesado.fotos[this.actual];
+
+        $("article img")
+            .attr("src", foto.url)
+            .attr("alt", foto.titulo);
     }
-
-    let foto = jsonProcesado.fotos[this.actual];
-
-    $("#zonaImagenes article img")
-        .attr("src", foto.url)
-        .attr("alt", foto.titulo);
-}
-
 }

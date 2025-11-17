@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 
 <html lang="es">
+
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
@@ -34,8 +35,17 @@
             <a href="ayuda.html" title="Ayuda sobre MotoGP-Desktop">Ayuda</a>
         </nav>
     </header>
-    <article> 
+    <article>
         <h2>Imágenes del circuito de Chang International Circuit</h2>
     </article>
+    <script>
+        $(document).ready(function () {
+            const car = new Carrusel();
+            car.getFotografias()
+                .then(json => car.procesarJSONFotografias(json))
+                .then(jsonProc => car.mostrarFotografias(jsonProc));
+        });
+    </script>
 </body>
+
 </html>
