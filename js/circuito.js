@@ -1,13 +1,11 @@
 class Circuito {
     constructor() {
         this.comprobarApiFile();
-        this.leerArchivoHTML();
     }
 
     comprobarApiFile() {
         const mensaje = document.createElement("p");
         if (window.File && window.FileReader && window.FileList && window.Blob) {
-            this.leerArchivoHTML();
             return;
         } else {
             mensaje.textContent = "¡¡¡ Este navegador NO soporta el API File y este programa puede no funcionar correctamente !!!"
@@ -15,51 +13,77 @@ class Circuito {
         document.body.appendChild(mensaje);
     }
 
-    leerArchivoHTML() {
-        const ruta = "./xml/infoCircuito.html";
-        let contenido;
+    leerArchivoHTML(files) {
+        const archivo = files[0];
 
-        fetch(ruta)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("No se pudo cargar el archivo HTML");
-                }
-                return response.text();
-            })
-            .then(texto => {
-                contenido = texto;
-                this.mostrarInformacion(contenido);
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                errorArchivo.innerText = "Error : ¡¡¡ No se pudo leer infoCircuito.html !!!";
-            });
+        const tipoTexto = /text.*/;
+        if (archivo.type.match(tipoTexto)) {
+            const lector = new FileReader();
+
+            lector.onload = (evento) => {
+                this.mostrarInformacion(lector.result);
+            };
+
+            lector.readAsText(archivo);
+        }
     }
 
     mostrarInformacion(textoHTML) {
-        var mainCircuito = document.createElement("main");
-
         const parser = new DOMParser();
         const doc = parser.parseFromString(textoHTML, "text/html");
 
         const mainDoc = doc.querySelector("main");
-        mainCircuito.textContent = mainDoc;
 
-        document.body.appendChild(mainDoc);
+        const mainCircuito = document.querySelector("main");
+        mainCircuito.innerHTML += mainDoc.innerHTML;
+
+        document.body.appendChild(mainCircuito);
+
         this.cambiarAtributos();
     }
 
     cambiarAtributos() {
         $("img").each(function () {
             const srcActual = $(this).attr("src");
-            $(this).attr("src", srcActual.slice(1));
+            if (srcActual && srcActual.startsWith(".")) {
+                $(this).attr("src", srcActual.slice(1));
+            }
         });
 
-        // Cambiar rutas de videos
         $("video source").each(function () {
             const srcActual = $(this).attr("src");
-            $(this).attr("src", srcActual.slice(1));
+            if (srcActual && srcActual.startsWith(".")) {
+                $(this).attr("src", srcActual.slice(1));
+            }
         });
     }
-
 }
+
+const circuito = new Circuito();
+
+class CargadorSVG {
+    constructor() {
+
+    }
+
+    leerArchivoSVG(files) {
+        const archivo = files[0];
+
+        if (archivo && archivo.name.endsWith(".svg")) {
+            const lector = new FileReader();
+
+            lector.onload = (evento) => {
+                this.insertarSVG(lector.result);
+            };
+
+            lector.readAsText(archivo);
+        }
+    }
+
+    insertarSVG(svgTexto) {
+        const contenedor = document.querySelector("main");
+        contenedor.innerHTML += svgTexto;
+    }
+}
+
+const cargadorSVG = new CargadorSVG();

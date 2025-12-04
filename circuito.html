@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="js/circuito.js"></script>
 </head>
 
@@ -35,11 +36,10 @@
         </nav>
     </header>
 
-    <p>Estás en: <a href="index.html" title="Página inicial de MotoGP-Desktop">Inicio</a> >> <strong>Circuito</strong>
-    </p>
-    <script>
-        const circuito = new Circuito();
-    </script>
+    <p>Estás en: <a href="index.html" title="Página inicial de MotoGP-Desktop">Inicio</a> >> <strong>Circuito</strong></p>
+    <input type="file" onchange="circuito.leerArchivoHTML(this.files);">
+    <input type="file" onchange="cargadorSVG.leerArchivoSVG(this.files);">
+    <main></main>
 </body>
 
 </html>
