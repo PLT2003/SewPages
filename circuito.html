@@ -39,22 +39,13 @@
 
     <p>Estás en: <a href="index.html" title="Página inicial de MotoGP-Desktop">Inicio</a> >> <strong>Circuito</strong>
     </p>
-    
-    <label>
-        Leer archivo HTML (InfoCircuito.html):
-        <input type="file" accept=".html" onchange="circuito.leerArchivoHTML(this.files);">
-    </label>
 
-    <label>
-        Leer archivo SVG (Altimetria.svg):
-        <input type="file" accept=".svg" onchange="cargadorSVG.leerArchivoSVG(this.files);">
-    </label>
+    <label>Leer archivo HTML (InfoCircuito.html):<input type="file" accept=".html" onchange="circuito.leerArchivoHTML(this.files);"></label>
+       
+    <label>Leer archivo SVG (Altimetria.svg):<input type="file" accept=".svg" onchange="cargadorSVG.leerArchivoSVG(this.files);"></label>
 
-    <label>
-        Leer archivo KML (InfoCircuito.kml):
-        <input type="file" accept=".kml" onchange="cargadorKML.leerArchivoKML(this.files)">
-    </label>
-
+    <label>Leer archivo KML (InfoCircuito.kml):<input type="file" accept=".kml" onchange="cargadorKML.leerArchivoKML(this.files)"></label>
+        
     <main>
         <div></div>
     </main>
