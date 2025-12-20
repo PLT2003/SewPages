@@ -126,7 +126,6 @@ if (isset($_POST['terminar_prueba']) && $_SESSION['fase'] === 'otros') {
         $stmt->execute();
     }
 
-    // 🔁 REINICIAR FORMULARIO
     session_unset();
     session_destroy();
 
@@ -196,7 +195,6 @@ if (isset($_POST['terminar_prueba']) && $_SESSION['fase'] === 'otros') {
     <p>Pericia informática (1–10)</p>
     <input type="number" name="pericia" min="1" max="10" required>
 
-    <br><br>
     <button type="submit" name="iniciar_prueba">Iniciar prueba</button>
 </form>
 <?php endif; ?>
@@ -233,7 +231,6 @@ foreach ($preguntas as $id => $texto):
 
 <?php endforeach; ?>
 
-    <br><br>
     <button type="submit" name="siguiente">Terminar prueba</button>
 </form>
 <?php endif; ?>
@@ -259,7 +256,6 @@ foreach ($preguntas as $id => $texto):
     <p>Observaciones del facilitador</p>
     <textarea name="comentarios_facilitador"></textarea>
 
-    <br><br>
     <button type="submit" name="terminar_prueba">Guardar</button>
 </form>
 <?php endif; ?>
