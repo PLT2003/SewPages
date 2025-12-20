@@ -34,7 +34,7 @@ article img {
     height: 100%;
     position: absolute;
     border-radius: 0.5em;
-    background: #1C7CCC;
+    background: #1C7CCC; /* advertencia por herencia de color de body #0a0a00 */
     backface-visibility: hidden;
 }
 

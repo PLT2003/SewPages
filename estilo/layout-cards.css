@@ -30,12 +30,10 @@ main p {
 
     /* Especificidad: 001 */
     main {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(6, auto);
-        column-gap: 0.5rem;
-        row-gap: 1rem;
-        justify-items: center;
+        grid-template-columns: repeat(2, 1fr); /* Advertencia por redefinir propiedad "grid-template-columns" por media-query */
+        grid-template-rows: repeat(6, auto); /* Advertencia por redefinir propiedad "grid-template-rows" por media-query */
+        column-gap: 0.5rem; /* Advertencia por redefinir propiedad "column-gap" por media-query */
+        row-gap: 1rem; /* Advertencia por redefinir propiedad "row-gap" por media-query */
     }
 
     /* Especificidad: 002 */

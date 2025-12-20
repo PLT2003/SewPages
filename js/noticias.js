@@ -2,7 +2,7 @@ class Noticias {
     constructor() {
         this.busqueda = "ChangInternationalCircuit";
         this.url = "https://api.thenewsapi.com/v1/news/top";
-        this.apiKey = "b6dfd3cc39a44306b6f61f68656845fc";
+        this.apiKey = "ZItaq4Oij7VdxbWAUGo9kt7FH2WwYuvzlGFY2jP5";
     }
 
     buscar() {
@@ -20,48 +20,47 @@ class Noticias {
     }
 
     procesarInformacion(json) {
-        let listaProcesada = [];
+    let listaProcesada = [];
 
-        let noticias = json.data;
+    let noticias = json.data;
 
-        for (let noticia of noticias) {
-            let objeto = {
-                titular: noticia.title,
-                entradilla: noticia.description,
-                enlace: noticia.url,
-                fuente: noticia.source
-            };
+    for (let noticia of noticias) {
+        let objeto = {
+            titular: noticia.title,
+            entradilla: noticia.description,
+            enlace: noticia.url,
+            fuente: noticia.source
+        };
 
-            listaProcesada.push(objeto);
-        }
+        listaProcesada.push(objeto);
     }
+
+    return listaProcesada;
+}
 
     mostrarNoticias(listaProcesada) {
-        seccion = $("section").last();
+    // Crear sección y H2 dinámicamente
+    const section = $("<section></section>");
+    const h2 = $("<h2></h2>").text("Noticias del circuito de Chang International Circuit");
+    section.append(h2);
+    $("body").append(section); // agregamos la sección al body
 
-        for (let noticia of listaProcesada) {
+    for (let noticia of listaProcesada) {
+        let articulo = $("<article></article>").addClass("noticia");
 
-            let articulo = $("<article></article>").addClass("noticia");
+        let titulo = $("<h3></h3>").text(noticia.titular);
+        let entradilla = $("<p></p>").text(noticia.entradilla);
+        let enlace = $("<a></a>")
+            .attr("href", noticia.enlace)
+            .attr("target", "_blank")
+            .text("Leer noticia completa");
+        let fuente = $("<p></p>")
+            .addClass("fuente")
+            .text("Fuente: " + noticia.fuente);
 
-            let titulo = $("<h3></h3>").text(noticia.titular);
-
-            let entradilla = $("<p></p>").text(noticia.entradilla);
-
-            let enlace = $("<a></a>")
-                .attr("href", noticia.enlace)
-                .attr("target", "_blank")
-                .text("Leer noticia completa");
-
-            let fuente = $("<p></p>")
-                .addClass("fuente")
-                .text("Fuente: " + noticia.fuente);
-
-            articulo.append(titulo);
-            articulo.append(entradilla);
-            articulo.append(enlace);
-            articulo.append(fuente);
-
-            seccion.append(articulo);
-        }
+        articulo.append(titulo, entradilla, enlace, fuente);
+        section.append(articulo);
     }
+}
+
 }

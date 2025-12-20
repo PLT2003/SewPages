@@ -8,6 +8,8 @@ class Cronometro {
 
     añadirEventos() {
         const buttons = document.querySelectorAll("button");
+        if (!buttons || buttons.length < 3) return;
+
         buttons[0].addEventListener("click", this.arrancar.bind(this));
         buttons[1].addEventListener("click", this.parar.bind(this));
         buttons[2].addEventListener("click", this.reiniciar.bind(this));

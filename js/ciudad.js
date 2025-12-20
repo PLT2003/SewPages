@@ -101,28 +101,47 @@ class Ciudad {
             .then(jsonOriginal => {
                 const jsonProcesado = this.procesarJSONCarrera(jsonOriginal);
 
-                // Mostrar datos diarios
+                // Función para formatear horas a HH:MM
+                const formatoHora = (isoString) => {
+                    const fecha = new Date(isoString + "Z"); // 'Z' para UTC
+                    const horaLocal = fecha.getUTCHours() + 7; // Asia/Bangkok UTC+7
+                    const horaEn24 = (horaLocal >= 24) ? horaLocal - 24 : horaLocal;
+                    const minutos = fecha.getUTCMinutes().toString().padStart(2, "0");
+                    return `${horaEn24.toString().padStart(2, "0")}:${minutos}`;
+                }
+
+                // Mostrar datos diarios (amanecer y anochecer)
                 const tituloDiarios = document.createElement("h3");
-                tituloDiarios.textContent = "Datos diarios";
+                tituloDiarios.textContent = "Datos diarios de la carrera";
                 document.body.appendChild(tituloDiarios);
 
                 const amanecer = document.createElement("p");
-                amanecer.textContent = `Amanecer: ${jsonProcesado.sol.amanecer}`;
+                amanecer.textContent = `Amanecer: ${formatoHora(jsonProcesado.sol.amanecer)}`;
                 document.body.appendChild(amanecer);
 
                 const anochecer = document.createElement("p");
-                anochecer.textContent = `Anochecer: ${jsonProcesado.sol.anochecer}`;
+                anochecer.textContent = `Anochecer: ${formatoHora(jsonProcesado.sol.anochecer)}`;
                 document.body.appendChild(anochecer);
 
-                // Mostrar datos por hora
+                // Definir franja horaria de la carrera
+                const horaInicio = 14;
+                const horaFin = 16;
+
+                // Mostrar datos por hora solo dentro de la franja
                 const tituloHoraria = document.createElement("h3");
-                tituloHoraria.textContent = "Datos por franja horaria";
+                tituloHoraria.textContent = "Datos por franja horaria (14:00-16:00)";
                 document.body.appendChild(tituloHoraria);
 
                 jsonProcesado.horas.forEach(hora => {
-                    const p = document.createElement("p");
-                    p.textContent = `Hora: ${hora.hora}, Temp: ${hora.temperatura}°C, Sensación: ${hora.sensacion}°C, Humedad: ${hora.humedad}%, Lluvia: ${hora.lluvia}mm, Viento: ${hora.viento_velocidad}m/s (${hora.viento_direccion}°)`;
-                    document.body.appendChild(p);
+                    const fechaHora = new Date(hora.hora + "Z");
+                    let horaLocal = fechaHora.getUTCHours() + 7;
+                    horaLocal = (horaLocal >= 24) ? horaLocal - 24 : horaLocal;
+
+                    if (horaLocal >= horaInicio && horaLocal <= horaFin) {
+                        const p = document.createElement("p");
+                        p.textContent = `Hora: ${formatoHora(hora.hora)}, Temp: ${hora.temperatura}°C, Sensación: ${hora.sensacion}°C, Humedad: ${hora.humedad}%, Lluvia: ${hora.lluvia}mm, Viento: ${hora.viento_velocidad}m/s (${hora.viento_direccion}°)`;
+                        document.body.appendChild(p);
+                    }
                 });
             })
             .catch(err => console.error("Error al mostrar meteorología:", err));

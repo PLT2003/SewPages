@@ -3,11 +3,12 @@ class Memoria {
         this.tablero_bloqueado = true;
         this.primera_carta = null;
         this.segunda_carta = null;
+        this.cronometroIniciado = false;
+
         this.barajarCartas();
         this.añadirEventos();
+
         this.tablero_bloqueado = false;
-        this.cronometro = new Cronometro();
-        this.cronometro.arrancar();
     }
 
     voltearCarta(carta) {
@@ -21,6 +22,11 @@ class Memoria {
 
         carta.setAttribute('data-estado', 'volteada');
 
+        if (!this.cronometroIniciado && typeof cronometro !== "undefined") {
+            cronometro.arrancar();
+            this.cronometroIniciado = true;
+        }
+
         if (!this.primera_carta) {
             this.primera_carta = carta;
             return;
@@ -32,10 +38,10 @@ class Memoria {
     }
 
     añadirEventos() {
-        const articles = document.querySelectorAll("article");
-        for (let i = 0; i < articles.length; i++) {
-            articles[i].addEventListener("click", this.voltearCarta.bind(this, articles[i]));
-        }
+        const articles = document.querySelectorAll("main article");
+        articles.forEach(carta => {
+            carta.addEventListener("click", this.voltearCarta.bind(this, carta));
+        });
     }
 
     barajarCartas() {
@@ -43,7 +49,7 @@ class Memoria {
         const cartas = Array.from(main.querySelectorAll("article"));
 
         for (let i = cartas.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * i);
+            const j = Math.floor(Math.random() * (i + 1));
             main.appendChild(cartas[j]);
         }
     }
@@ -68,7 +74,10 @@ class Memoria {
 
         if (cartasReveladas.length === cartas.length) {
             this.tablero_bloqueado = true;
-            this.cronometro.parar();
+
+            if (typeof cronometro !== "undefined") {
+                cronometro.parar();
+            }
         }
     }
 
@@ -89,7 +98,6 @@ class Memoria {
     
         (img1 === img2) ? this.deshabilitarCartas() : this.cubrirCartas();
     }
-    
 }
 
 const memoria = new Memoria();

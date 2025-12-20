@@ -158,8 +158,8 @@ def extraer_info(xml_file):
     # Otros datos que quieras mostrar como key-value
     kv = [
         ("Nombre", nombre),
-        ("Longitud (m)", longitud_circuito),
-        ("Anchura (m)", anchura),
+        ("Longitud(m)", longitud_circuito),
+        ("Anchura(m)", anchura),
         ("Fecha", fecha),
         ("Hora", hora),
         ("Vueltas", vueltas),

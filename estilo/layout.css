@@ -1,4 +1,4 @@
-/* datos personales Pablo López Tamargo UO287694 */
+/* Datos personales Pablo López Tamargo UO287694 */
 
 /* Especificidad: 001 */
 header {
@@ -12,6 +12,14 @@ nav {
     justify-content: space-evenly;
     align-items: center;
 }
+
+/* Especificidad: 002 */
+body > div {
+    width: 100%;
+    height: 60vh;
+    margin: 1em auto;
+}
+
 
 @media screen and (min-width: 320px) and (max-width: 799px) {
 
@@ -33,7 +41,15 @@ nav {
     }
 
     /* Especificidad: 003 */
-    article h2 + img {
+    article h2+img {
         width: 100%;
     }
+
+    /* Especificidad: 002 */
+    body > div {
+        width: 100vw;   /* Advertencia por redefinir propiedad "width" por media-query */
+        height: 50vh;   /* Advertencia por redefinir propiedad "height" por media-query */
+        margin: 0;      /* Advertencia por redefinir propiedad "margin" (top, left, right, bottom) por media-query */
+    }
+
 }

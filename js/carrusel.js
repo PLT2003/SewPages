@@ -65,30 +65,30 @@ class Carrusel {
     }
 
     iniciarCarrusel(jsonProcesado) {
-        const article = $("article").first();
+        // Crear sección y H2 dinámicamente
+        const section = $("<section></section>");
+        const h2 = $("<h2></h2>").text("Imágenes del circuito de Chang International Circuit");
+        section.append(h2);
 
         let primeraFoto = jsonProcesado.fotos[0];
-
         let imagen = $("<img>")
             .attr("src", primeraFoto.url)
             .attr("alt", primeraFoto.titulo);
 
-        article.append(imagen);
+        section.append(imagen);
+        $("body").append(section); // agregamos la sección al body
 
-        setInterval(() => this.cambiarFotografia(jsonProcesado), 3000);
+        setInterval(() => this.cambiarFotografia(section, jsonProcesado), 3000);
     }
 
-    cambiarFotografia(jsonProcesado) {
+    cambiarFotografia(section, jsonProcesado) {
         this.actual++;
-
-        if (this.actual > this.maximo) {
-            this.actual = 0;
-        }
+        if (this.actual > this.maximo) this.actual = 0;
 
         let foto = jsonProcesado.fotos[this.actual];
-
-        $("article img")
+        section.find("img")
             .attr("src", foto.url)
             .attr("alt", foto.titulo);
     }
+
 }
