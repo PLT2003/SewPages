@@ -15,11 +15,10 @@ nav {
 
 /* Especificidad: 002 */
 body > div {
-    width: 100%;
-    height: 60vh;
+    width: 90%;
+    height: auto;
     margin: 1em auto;
 }
-
 
 @media screen and (min-width: 320px) and (max-width: 799px) {
 

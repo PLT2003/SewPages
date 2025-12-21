@@ -109,3 +109,9 @@ td {
     border: 0.1em solid #0a0a00;
     text-align: center;
 }
+
+/* Especificidad: 002 */
+section img {
+    max-width: 100%;
+    height: auto;
+}
