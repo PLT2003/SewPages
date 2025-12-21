@@ -21,7 +21,7 @@ xsi:schemaLocation="http://www.uniovi.es circuito.xsd">
     <Fotos>
         <Foto alt="Foto del comienzo del circuito Chang International Circuit">../multimedia/changInternational1.webp</Foto>
         <Foto alt="Foto a vista de dron del circuito Chang International Circuit">../multimedia/changInternational2.jpg</Foto>
-        <Foto alt="Mapa del circuito Chang International Circuit">../multimedia/changInternational3.png</Foto>
+        <Foto alt="Mapa del circuito Chang International Circuit">../multimedia/changInternational3.webp</Foto>
     </Fotos>
     <Videos>
         <Video alt="Video de una vuelta al circuito Chang Internation Circuit">../multimedia/changCircuit.mp4</Video>

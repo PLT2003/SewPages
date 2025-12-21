@@ -124,7 +124,7 @@ def extraer_info(xml_file):
     localidad = txt('ns:Localidad')
     pais = txt('ns:Pais')
     patrocinador = txt('ns:Patrocinador')
-    vencedor = txt('ns:Vencedor')  # si existe
+    vencedor = txt('ns:Vencedor')
 
     # Bibliografía (enlaces)
     enlaces = []
